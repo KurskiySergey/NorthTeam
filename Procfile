@@ -1,1 +1,1 @@
-web: gunicorn north_team.wsgi.application
+web: gunicorn north_team.wsgi
