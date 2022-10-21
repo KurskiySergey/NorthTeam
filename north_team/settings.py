@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phonenumber_field',
     "main",
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -96,6 +98,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
+#         "NAME": 'db.sqlite3'
 #     }
 # }
 
