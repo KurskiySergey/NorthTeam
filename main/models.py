@@ -19,10 +19,12 @@ class Candidate(models.Model):
         max_length=255
     )
     second_name = models.CharField(
-        max_length=255
+        max_length=255,
+        blank=True
     )
     third_name = models.CharField(
-        max_length=255
+        max_length=255,
+        blank=True
     )
     phone = PhoneNumberField(unique=True)
     email = models.EmailField(null=True, blank=True)

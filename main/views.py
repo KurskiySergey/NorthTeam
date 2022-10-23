@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import TestUser, Candidate
+from .utils import correct_name
 
 # Create your views here.
 def main(request):
@@ -19,11 +20,10 @@ def submit(request):
     # print(request.POST)
     post = request.POST
     name_info = post.get("name").split(" ")
+    print(name_info)
     user = Candidate()
-    user.first_name = name_info[0]
-    user.second_name = name_info[1]
-    user.third_name = name_info[2]
-    user.phone = post.get("number")
+    user.first_name, user.second_name, user.third_name = correct_name(name_info)
+    user.phone = post.get("phone")
     user.email = post.get("email")
     user.save()
     return render(request, "main/index.html")

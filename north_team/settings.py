@@ -25,8 +25,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure--fgg5&nq-14(5k!sbc!6-
 # SECRET_KEY = 'django-insecure--fgg5&nq-14(5k!sbc!6-m-e^8z&p4i_-hd7r#!(+o7-l3*ksv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
-# DEBUG = True
+# DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "northteam.herokuapp.com",
@@ -84,14 +84,25 @@ WSGI_APPLICATION = 'north_team.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+# 		'default': {
+#       	'ENGINE': 'django.db.backends.postgresql',
+#       	'HOST' : os.environ.get('POSTGRES_HOST', 'localhost'),
+#       	'NAME': os.environ.get('POSTGRES_DB', 'db_name'),
+#       	'USER': os.environ.get('POSTGRES_USER', 'username'),
+#       	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
+#       	'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+#     }
+# }
+
 DATABASES = {
 		'default': {
       	'ENGINE': 'django.db.backends.postgresql',
-      	'HOST' : os.environ.get('POSTGRES_HOST', 'localhost'),
-      	'NAME': os.environ.get('POSTGRES_DB', 'db_name'),
-      	'USER': os.environ.get('POSTGRES_USER', 'username'),
-      	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
-      	'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+      	'HOST' : "ec2-54-228-125-183.eu-west-1.compute.amazonaws.com",
+      	'NAME': "dkqhvcajce1sv",
+      	'USER': "qgjjigtrdyqjvr",
+      	'PASSWORD': "2c8ff1618806ada6df96ee5b1fcc440f67c8b631494179133d88ebb6b2b12b1c",
+      	'PORT': "5432",
     }
 }
 
