@@ -26,6 +26,7 @@ def submit(request):
         user.first_name, user.second_name, user.third_name = correct_name(name_info)
         user.phone = post.get("phone")
         user.email = post.get("email")
+        user.message = post.get("message")
         user.save()
         context["result"] = "success"
     except Exception:
