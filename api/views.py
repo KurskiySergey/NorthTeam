@@ -11,6 +11,8 @@ def show_candidates(request, page=None):
     max_pages = (len(candidates)-1) // pagination_list_value + 1
     if page is None:
         page = 1
+    if page > max_pages:
+        page = max_pages
     list_candidates = candidates[(int(page)-1)*pagination_list_value: (int(page)-1)*pagination_list_value + pagination_list_value]
     context = {
         'candidates': list_candidates,
