@@ -25,8 +25,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure--fgg5&nq-14(5k!sbc!6-
 # SECRET_KEY = 'django-insecure--fgg5&nq-14(5k!sbc!6-m-e^8z&p4i_-hd7r#!(+o7-l3*ksv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
-# DEBUG = True
+# DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "northteam.herokuapp.com",
@@ -106,12 +106,12 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         "NAME": 'db.sqlite3'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        "NAME": 'db.sqlite3'
+    }
+}
 
 
 # Password validation

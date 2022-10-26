@@ -1,0 +1,19 @@
+{% load static %}
+{% for candidate in candidates %}
+ <div class="u-blog-post u-repeater-item u-grey u-repeater-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <a class="u-post-header-link" href="blog/пост-6.html"><!--blog_post_image-->
+                  <img src="{% static 'images/default_user.jpg' %}" alt="" class="u-blog-control u-image u-image-default u-image-1" data-image-width="1000" data-image-height="978"><!--/blog_post_image-->
+                </a><!--blog_post_header-->
+                <h2 class="u-blog-control u-text u-text-1">
+                  <a class="u-post-header-link" href="#"><!--blog_post_header_content-->{{ candidate.first_name }} {{ candidate.second_name }} {{ candidate_third_name }}<!--/blog_post_header_content--></a>
+                </h2><!--/blog_post_header--><!--blog_post_content-->
+                <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->{{ candidate.phone }}<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
+                <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{ candidate.email }}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                </div><!--/blog_post_metadata--><!--blog_post_readmore-->
+                <a href="blog/пост-6.html" class="u-blog-control u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"Подробная информация","defaultValue":"Читать дальше"}--><!--/options_json-->Подробная информация<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+                  <a href="{% url 'deluser' user_id=candidate.id page=page %}" class="u-active-palette-2-light-2 u-border-none u-btn u-button-style u-hover-palette-2-base u-palette-2-light-1 u-btn-2">удалить</a>
+              </div>
+            </div>
+{% endfor %}

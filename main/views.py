@@ -19,11 +19,15 @@ def contacts(request):
 def submit(request):
     # print(request.POST)
     post = request.POST
-    name_info = post.get("name").split(" ")
-    # print(name_info)
-    user = Candidate()
-    user.first_name, user.second_name, user.third_name = correct_name(name_info)
-    user.phone = post.get("phone")
-    user.email = post.get("email")
-    user.save()
-    return render(request, "main/index.html")
+    context = {}
+    try:
+        name_info = post.get("name").split(" ")
+        user = Candidate()
+        user.first_name, user.second_name, user.third_name = correct_name(name_info)
+        user.phone = post.get("phone")
+        user.email = post.get("email")
+        user.save()
+        context["result"] = "success"
+    except Exception:
+        context["result"] = "fail"
+    return render(request, "main/index.html", context=context)
