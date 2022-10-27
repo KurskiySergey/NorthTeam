@@ -28,6 +28,7 @@ class Candidate(models.Model):
     )
     phone = PhoneNumberField(unique=True)
     email = models.EmailField(null=True, blank=True)
+    photo = models.CharField(null=True, blank=True, max_length=255)
     message = models.TextField(null=True, blank=True)
 
     @staticmethod

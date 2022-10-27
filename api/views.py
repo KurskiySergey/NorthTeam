@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as auth_login, authenticate, logout as auth_logout
 from main.models import Candidate
+import os
+from config import STATIC_DIR
 # Create your views here.
 
 @login_required(login_url="/api/login")
@@ -27,6 +29,13 @@ def delete_user(request, user_id=None, page=None):
     if user_id is not None and isinstance(user_id, int):
         user = Candidate.objects.filter(id=user_id)
         if user is not None:
+            photo_path = user[0].photo
+            try:
+                if photo_path is not None:
+                    photo_path = os.path.join(STATIC_DIR, photo_path[1:])
+                    os.remove(photo_path)
+            except FileNotFoundError:
+                pass
             user.delete()
     if page is None:
         page = 1

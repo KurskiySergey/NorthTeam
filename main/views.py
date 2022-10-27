@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
-from .models import TestUser, Candidate
+from .models import Candidate
 from .utils import correct_name
+from api.utils import download_profile_info
+import threading
 
 # Create your views here.
 def main(request):
@@ -27,7 +29,9 @@ def submit(request):
         user.email = post.get("email")
         user.message = post.get("message")
         user.save()
+
     except Exception:
         return HttpResponse(status=500)
-
+    thread = threading.Thread(target=download_profile_info, args=(user,))
+    thread.start()
     return HttpResponse(status=200)

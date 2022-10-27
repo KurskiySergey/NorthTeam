@@ -2,8 +2,8 @@
 {% for candidate in candidates %}
  <div class="u-blog-post u-repeater-item u-grey u-repeater-item-1">
               <div class="u-container-layout u-similar-container u-container-layout-1">
-                <a class="u-post-header-link" href="blog/пост-6.html"><!--blog_post_image-->
-                  <img src="{% static 'images/default_user.jpg' %}" alt="" class="u-blog-control u-image u-image-default u-image-1" data-image-width="1000" data-image-height="978"><!--/blog_post_image-->
+                <a class="u-post-header-link" href="{% if candidate.photo is None %}{% static 'images/default_user.jpg' %} {% else %} {% static candidate.photo %} {% endif %}"><!--blog_post_image-->
+                  <img src="{% if candidate.photo is None %}{% static 'images/default_user.jpg' %} {% else %} {% static candidate.photo %} {% endif %}" alt="" class="u-blog-control u-image u-image-default u-image-1" data-image-width="1000" data-image-height="978"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h2 class="u-blog-control u-text u-text-1">
                   <a class="u-post-header-link" href="#"><!--blog_post_header_content-->{{ candidate.first_name }} {{ candidate.second_name }} {{ candidate_third_name }}<!--/blog_post_header_content--></a>
