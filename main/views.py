@@ -19,7 +19,6 @@ def contacts(request):
 def submit(request):
     # print(request.POST)
     post = request.POST
-    context = {}
     try:
         name_info = post.get("name").split(" ")
         user = Candidate()
@@ -28,7 +27,7 @@ def submit(request):
         user.email = post.get("email")
         user.message = post.get("message")
         user.save()
-        context["result"] = "success"
     except Exception:
-        context["result"] = "fail"
-    return render(request, "main/index.html", context=context)
+        return HttpResponse(status=500)
+
+    return HttpResponse(status=200)

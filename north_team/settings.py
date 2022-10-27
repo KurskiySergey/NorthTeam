@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'north_team.wsgi.application'
 DATABASES = {
 		'default': {
       	'ENGINE': 'django.db.backends.postgresql',
-      	'HOST' : os.environ.get('POSTGRES_HOST', 'localhost'),
-      	'NAME': os.environ.get('POSTGRES_DB', 'db_name'),
-      	'USER': os.environ.get('POSTGRES_USER', 'username'),
-      	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
+      	'HOST' : os.environ.get('POSTGRES_HOST', "ec2-54-228-125-183.eu-west-1.compute.amazonaws.com"),
+      	'NAME': os.environ.get('POSTGRES_DB', "dkqhvcajce1sv"),
+      	'USER': os.environ.get('POSTGRES_USER', "qgjjigtrdyqjvr"),
+      	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', "2c8ff1618806ada6df96ee5b1fcc440f67c8b631494179133d88ebb6b2b12b1c"),
       	'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
