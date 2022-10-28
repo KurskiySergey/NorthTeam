@@ -41,7 +41,7 @@ async def get_tg_user_main_info(client, user):
         photo_path = os.path.join(PROFILE_IMG_DIR, str(user_id))
         result = await get_profile_photo(client=client, user_id=user_id, path=photo_path)
         if result is not None:
-            user.photo = result.split("static")[-1]
+            user.photo = result
 
 
 def read_tg_config():
