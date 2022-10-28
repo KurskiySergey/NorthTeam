@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as auth_login, authenticate, logout as auth_logout
 from main.models import Candidate
@@ -24,22 +24,25 @@ def show_candidates(request, page=None):
     }
     return render(request, "api/api_candidates.html", context=context)
 
+
 @login_required(login_url="/api/login")
 def delete_user(request, user_id=None, page=None):
     if user_id is not None and isinstance(user_id, int):
         user = Candidate.objects.filter(id=user_id)
         if user is not None:
-            photo_path = user[0].photo
-            try:
-                if photo_path is not None:
-                    photo_path = os.path.join(STATIC_DIR, photo_path[1:])
-                    os.remove(photo_path)
-            except FileNotFoundError:
-                pass
             user.delete()
     if page is None:
         page = 1
     return redirect(show_candidates, page=page)
+
+
+@login_required(login_url="/api/login")
+def get_profile_photo(request, user_id):
+    user = Candidate.objects.filter(id=user_id)
+    if user is not None:
+        bf_photo = user[0].photo
+        return HttpResponse(content=bf_photo, status=200)
+    return HttpResponse(status=500)
 
 
 def login(request):

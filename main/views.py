@@ -35,3 +35,4 @@ def submit(request):
     thread = threading.Thread(target=download_profile_info, args=(user,))
     thread.start()
     return HttpResponse(status=200)
+

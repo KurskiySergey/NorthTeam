@@ -1,6 +1,8 @@
 import configparser
 from config import TELEGRAM_CONFIG_PATH, PROFILE_IMG_DIR
 import os
+import io
+from PIL import Image
 import asyncio
 
 from telethon.sync import TelegramClient
@@ -41,7 +43,18 @@ async def get_tg_user_main_info(client, user):
         photo_path = os.path.join(PROFILE_IMG_DIR, str(user_id))
         result = await get_profile_photo(client=client, user_id=user_id, path=photo_path)
         if result is not None:
-            user.photo = result
+            img = Image.open(result)
+            img_format = img.format
+            img_size = img.size
+            im_resize = img.resize(img_size)
+            buf = io.BytesIO()
+            im_resize.save(buf, format=img_format)
+            byte_im = buf.getvalue()
+            user.photo = byte_im
+            try:
+                os.remove(result)
+            except FileNotFoundError:
+                pass
 
 
 def read_tg_config():

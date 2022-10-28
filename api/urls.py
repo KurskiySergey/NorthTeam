@@ -7,4 +7,5 @@ urlpatterns = [
     path("delete_user/<int:user_id>/<int:page>", views.delete_user, name="deluser"),
     path("login/", views.login, name="login"),
     path("logout/", views.logout, name="logout"),
+    path("getPhoto/<int:user_id>", views.get_profile_photo, name="photo")
 ]
