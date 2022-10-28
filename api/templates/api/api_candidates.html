@@ -51,16 +51,17 @@
   </header>
   {% endblock %}
   {% block main %}
-      <section class="u-align-center u-clearfix u-image u-section-1" id="carousel_cf2f" data-image-width="827" data-image-height="465">
+  <section class="u-align-center u-clearfix u-image u-lightbox u-section-1" id="carousel_cf2f" data-image-width="827" data-image-height="465">
       <div class="u-clearfix u-sheet u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-pagination-center u-blog-1">
           <div class="u-repeater u-repeater-1"><!--blog_post-->
               {% include 'api/sub_templates/posts.html' %}
           </div>
-            {% include 'api/sub_templates/post_index.html' %}
+          {% include 'api/sub_templates/post_index.html' %}
         </div><!--/blog-->
       </div>
     </section>
+
   {% endblock %}
 
   {% block footer %}
