@@ -1,6 +1,7 @@
 $("#contact-form").submit(function(e)
 {
     console.log(e);
+    console.log(submit_url);
     $.ajax({
                   data: $(this).serialize(), // получаяем данные формы
                   url: submit_url,

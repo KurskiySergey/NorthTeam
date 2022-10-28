@@ -929,3 +929,11 @@
     margin: 26px 16px 0 4px;
   }
 }
+
+.u-form-send-message.u-form-send-success:hover {
+    background: #53ed88;
+}
+
+.u-form-send-error.u-form-send-message:hover {
+    background: #e73022;
+}
