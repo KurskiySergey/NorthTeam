@@ -1,5 +1,5 @@
 import configparser
-from config import TELEGRAM_CONFIG_PATH, PROFILE_IMG_DIR
+from config import TELEGRAM_CONFIG_PATH, PROFILE_IMG_DIR, USE_TELEGRAM
 import os
 import io
 from PIL import Image
@@ -73,7 +73,7 @@ def read_tg_config():
 def download_profile_info(user):
     api_id, api_hash, username, connect = read_tg_config()
 
-    if connect:
+    if connect and USE_TELEGRAM:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         client = TelegramClient(username, api_id, api_hash)
