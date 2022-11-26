@@ -18,3 +18,8 @@ $("#contact-form").submit(function(e)
               });
     return false;
 });
+
+function ScrollToBottom()
+{
+    window.scrollTo(0, document.body.scrollHeight);
+}
