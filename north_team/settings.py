@@ -29,9 +29,7 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    "northteam.herokuapp.com",
-    "127.0.0.1",
-    "localhost"
+    "*",
 ]
 
 
