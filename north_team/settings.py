@@ -25,11 +25,17 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure--fgg5&nq-14(5k!sbc!6-
 # SECRET_KEY = 'django-insecure--fgg5&nq-14(5k!sbc!6-m-e^8z&p4i_-hd7r#!(+o7-l3*ksv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    "*",
+    "northteam.herokuapp.com",
+    "127.0.0.1",
+    "95.165.104.201",
+    "walkerdns.hopto.org",
+    "dobrovolez.ru",
+    "192.168.1.71",
+    "localhost"
 ]
 
 
@@ -144,3 +150,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
