@@ -34,6 +34,9 @@ ALLOWED_HOSTS = [
     "95.165.104.201",
     "walkerdns.hopto.org",
     "dobrovolez.ru",
+    "www.dobrovolez.ru",
+    "dobrovolez.pro",
+    "www.dobrovolez.pro",
     "192.168.1.71",
     "localhost"
 ]
